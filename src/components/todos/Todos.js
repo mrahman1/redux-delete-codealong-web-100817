@@ -5,9 +5,14 @@ class Todos extends Component {
 
   render() {
 
-    const todos = this.props.store.getState().todos.map((todo, index) => {
-      return <Todo text={todo.text} key={index} />
-    });
+    const todos = this.props.store.getState().todos.map((todo, index) => (
+        <Todo
+          text={todo.text}
+          id={todo.id}
+          key={index}
+          store={this.props.store}
+        />
+    ));
 
     return(
       <ul>
